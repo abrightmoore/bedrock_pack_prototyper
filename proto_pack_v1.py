@@ -139,7 +139,7 @@ class Pack:
             fs.make_path_to_file(os.path.join(path, "texts"))
             content_languages = [ "en_US" ]
             self.pack.write_json(os.path.join(os.path.join(path, "texts"),"languages.json"), content_languages)
-            content_en_US = [ "pack.name="+pack.format_codes["Underline"]+pack.colour_codes["blue"]+pack.project_name+pack.format_codes["Reset"], "pack.description="+pack.project_name+" by "+pack.team_name ]
+            content_en_US = [ "pack.name="+pack.project_name, "pack.description="+pack.project_name+" by "+pack.team_name ]
             fs.write_lines_to_file(os.path.join(os.path.join(path, "texts"),"en_US.lang"), content_en_US)
             
             fs.make_path_to_file(os.path.join(path, "textures"+PSEP+self.pack.team_id+PSEP+self.pack.project_id))
@@ -223,6 +223,7 @@ class Pack:
                 "    });",
                 "",
                 "let iteration = 0;",
+                "if(iteration%20 == 0) { mc.world.sendMessage(\"Tick \"+String(iteration/20));	};",
                 "function run_each_frame() {",
                 "    iteration++;",
                 "    for(let dimension of dimensions) {",
@@ -243,7 +244,7 @@ class Pack:
             fs.make_path_to_file(os.path.join(path, "texts"))
             content_languages = [ "en_US" ]
             self.pack.write_json(os.path.join(os.path.join(path, "texts"),"languages.json"), content_languages)
-            content_en_US = [ "pack.name="+pack.format_codes["Underline"]+pack.colour_codes["blue"]+pack.project_name+pack.format_codes["Reset"], "pack.description="+pack.project_name+" by "+pack.team_name ]
+            content_en_US = [ "pack.name="+pack.project_name, "pack.description="+pack.project_name+" by "+pack.team_name ]
             fs.write_lines_to_file(os.path.join(os.path.join(path, "texts"),"en_US.lang"), content_en_US)
             
             fs.make_path_to_file(os.path.join(path, "dimensions"))
